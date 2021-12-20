@@ -111,12 +111,12 @@ ugettext = lambda s: s
 LANGUAGES = (
     ('en', ugettext('English')),
     ('rus', ugettext('Russian')),
-    ('tur', ugettext('Turkish')),
+    ('tr', ugettext('Turkish')),
     
 )
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-MODELTRANSLATION_LANGUAGES = ('en', 'rus','tur')
+MODELTRANSLATION_LANGUAGES = ('en', 'rus','tr')
 
 TIME_ZONE = 'UTC'
 
