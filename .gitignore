@@ -154,3 +154,7 @@ cython_debug/
 
 data/
 .vscode/
+
+
+.media
+.media/
