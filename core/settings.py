@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,13 +111,13 @@ LANGUAGE_CODE = "en-us"
 ugettext = lambda s: s
 LANGUAGES = (
     ('en', ugettext('English')),
-    ('rus', ugettext('Russian')),
+    ('ru', ugettext('Russian')),
     ('tr', ugettext('Turkish')),
     
 )
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-MODELTRANSLATION_LANGUAGES = ('en', 'rus','tr')
+MODELTRANSLATION_LANGUAGES = ('en', 'ru','tr')
 
 TIME_ZONE = 'UTC'
 

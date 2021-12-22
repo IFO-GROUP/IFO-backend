@@ -8,14 +8,14 @@ class ImageInline(admin.TabularInline):
     
     
 @admin.register(Project)
-class ContactAdmin(admin.ModelAdmin):
+class ContactAdmin(TranslationAdmin):
     search_fields = ('title','desc','text','link','created_at')
     list_display = ('title', 'cover_img', 'desc','detail_img','text','link','created_at')
     list_filter = ('title','desc','text','link','created_at')
 
 
 @admin.register(CoFounder)
-class ContactAdmin(admin.ModelAdmin):
+class ContactAdmin(TranslationAdmin):
     search_fields = ('full_name','desc')
     list_display =  ('full_name','img','desc')
     list_filter =   ('full_name','desc') 
@@ -23,7 +23,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 @admin.register(ShareHolder)
-class ContactAdmin(admin.ModelAdmin):
+class ContactAdmin(TranslationAdmin):
     search_fields = ('full_name','desc')
     list_display =  ('full_name','img','desc')
     list_filter =   ('full_name','desc') 
@@ -54,7 +54,7 @@ class ContactAdmin(admin.ModelAdmin):
     
     
 @admin.register(News)
-class ContactAdmin(admin.ModelAdmin):
+class ContactAdmin(TranslationAdmin):
     inlines = [ImageInline]
     search_fields = ('title','type','created_at')
     list_display =  ('title','cover_img','desc','type','created_at')
