@@ -13,6 +13,7 @@ router.register(r'careers', views.CareerViewSet)
 router.register(r'newscategories', views.NewsCategoryViewSet)
 router.register(r'news', views.NewsViewSet)
 router.register(r'images', views.ImageViewSet)
+router.register(r'subscribers', views.SubscriberViewSet)
 
 
 app_name = "api"

@@ -12,8 +12,14 @@ from .models import (
         Career,
         NewsCategory,
         News,
-        Image
+        Image,
+        Subscriber
 )
+
+class SubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscriber
+        fields = "__all__"
 
 
 class TranslatedModelSerializerMixin(serializers.ModelSerializer):

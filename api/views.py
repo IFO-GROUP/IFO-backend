@@ -10,7 +10,8 @@ from .models import (
         Career,
         NewsCategory,
         News,
-        Image
+        Image,
+        Subscriber
 )
 
 from api.serializers import (
@@ -21,9 +22,15 @@ from api.serializers import (
         CareerSerializer,
         NewsCategorySerializer,
         NewsSerializer,
-        ImageSerializer
+        ImageSerializer,
+        SubscriberSerializer
 )
 
+
+class SubscriberViewSet(viewsets.ModelViewSet):
+    queryset = Subscriber.objects.all()
+    serializer_class = SubscriberSerializer
+    http_method_names = ['post', 'options']
 
 class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Project.objects.all()

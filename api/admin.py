@@ -1,7 +1,14 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
-from .models import Career, CareerCategory, CoFounder, Image, News, NewsCategory, Project, ShareHolder
+from .models import Career, CareerCategory, CoFounder, Image, News, NewsCategory, Project, ShareHolder, Subscriber
 
+
+@admin.register(Subscriber)
+class ContactAdmin(admin.ModelAdmin):
+    search_fields = ( 'email',)
+    list_display = ('email',)
+    
+    
 class ImageInline(admin.TabularInline):
     model = Image
     extra = 0
