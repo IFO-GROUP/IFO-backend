@@ -5,6 +5,11 @@ from modeltranslation.manager import get_translatable_fields_for_model
 
 
 from .models import (
+        AllocationFund,
+        Coin,
+        CoinDeadline,
+        CoinFeature,
+        CoinField,
         Project,
         CoFounder,
         ShareHolder,
@@ -12,8 +17,8 @@ from .models import (
         Career,
         NewsCategory,
         News,
-        Image,
-        Subscriber
+        Subscriber,
+        TimeLine
 )
 
 class SubscriberSerializer(serializers.ModelSerializer):
@@ -69,8 +74,8 @@ class CareerCategorySerializer(serializers.ModelSerializer):
         
         
 class CareerSerializer(serializers.ModelSerializer):
+    category=CareerCategorySerializer()
     class Meta:
-        category=CareerCategorySerializer
         model = Career
         fields = "__all__"
         
@@ -82,14 +87,47 @@ class NewsCategorySerializer(serializers.ModelSerializer):
         
         
 class NewsSerializer(serializers.ModelSerializer):
+    
+    category=NewsCategorySerializer()
     class Meta:
-        category=NewsCategorySerializer
         model = News
         fields = "__all__"
         
-        
-class ImageSerializer(serializers.ModelSerializer):
+
+class CoinSerializer(serializers.ModelSerializer):
     class Meta:
-        news=NewsSerializer
-        model = Image
+        model = Coin
         fields = "__all__"
+
+
+class CoinFieldSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CoinField
+        fields = "__all__"
+
+
+class CoinDeadlineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CoinDeadline
+        fields = "__all__"
+
+
+class CoinFeatureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CoinFeature
+        fields = "__all__"
+
+
+class AllocationFundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AllocationFund
+        fields = "__all__"
+        
+
+class TimeLineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeLine
+        fields = "__all__"
+
+        
+        
