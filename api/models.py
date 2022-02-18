@@ -2,6 +2,15 @@ from django.db import models
 
 # Create your models here.
 
+
+
+class Subscriber(models.Model):
+    email = models.EmailField(max_length=254)
+
+    def __str__(self):
+        return self.email
+    
+    
 class Project(models.Model):
     title = models.CharField("title", max_length=100)
     cover_img = models.ImageField(upload_to='projects/')
@@ -83,7 +92,7 @@ class Career(models.Model):
 
 class NewsCategory(models.Model):
     type= models.CharField("type", max_length=100)
-
+    bg_color=models.CharField("background color", max_length=100)
     class Meta:
         verbose_name = 'NewsCategory'
         verbose_name_plural = 'NewsCategories'
@@ -94,18 +103,14 @@ class NewsCategory(models.Model):
    
     
 class News(models.Model):
-    type_choices = (
-        ('Corporation', 'Corporation'),
-        ('Creative', 'Creative'),
-        ('Clothing', 'Clothing'),
-        ('Company', 'Company'),
-    )
-    
     title= models.CharField("title", max_length=255)
     category=models.ForeignKey(NewsCategory, on_delete=models.SET_NULL, null=True)
     cover_img=models.ImageField(upload_to='news/')
     desc=models.TextField()
-    type= models.CharField(max_length=255,choices=type_choices)
+    img1=models.ImageField(upload_to='news/',null=True, blank=True)
+    img2=models.ImageField(upload_to='news/',null=True, blank=True)
+    img3=models.ImageField(upload_to='news/',null=True, blank=True)
+    img4=models.ImageField(upload_to='news/',null=True, blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
 
 
@@ -114,20 +119,93 @@ class News(models.Model):
         verbose_name_plural = 'News'
 
     def __str__(self):
-        return self.type  
+        return self.title
     
        
       
-class Image(models.Model):
-    img= models.ImageField(upload_to='news/')
-    news=models.ForeignKey(News, on_delete=models.CASCADE,
-                                 db_index=True, related_name='images')
-    is_published = models.BooleanField(default=False)
+
+class Coin(models.Model):
+    title= models.CharField("title", max_length=255,null=True, blank=True)
+    img=models.ImageField(upload_to='coins/',null=True, blank=True)
+    desc=models.TextField()
+    ln_link=models.URLField(max_length=255)
+
+    class Meta:
+        verbose_name = 'Coin'
+        verbose_name_plural = 'Coins'
+
+    def __str__(self):
+        return self.title
+    
+    
+class CoinField(models.Model):
+    title= models.CharField("title", max_length=255,null=True, blank=True)
+    img=models.ImageField(upload_to='coins/',null=True, blank=True)
+    desc=models.TextField()
+
+    class Meta:
+        verbose_name = 'CoinField'
+        verbose_name_plural = 'CoinFields'
+
+    def __str__(self):
+        return self.title
+    
+
+
+    
+class CoinDeadline(models.Model):
+     deadline=models.DateTimeField(null=True)
+
+     class Meta:
+        verbose_name = 'CoinDeadline'
+        verbose_name_plural = 'CoinDeadlines'
+        
+        
+        
+class CoinFeature(models.Model):
+    feature= models.CharField("feature", max_length=255)
+    count=models.IntegerField('count')
 
 
     class Meta:
-            verbose_name = 'Image'
-            verbose_name_plural = 'Images'
-            
-            
+        verbose_name = 'CoinFeature'
+        verbose_name_plural = 'CoinFeatures'
+
+    def __str__(self):
+        return self.feature
+    
+    
+
+class AllocationFund(models.Model):
+    title= models.CharField("title", max_length=255)
+
+
+    class Meta:
+        verbose_name = 'AllocationFund'
+        verbose_name_plural = 'AllocationFunds'
+
+    def __str__(self):
+        return self.title
+    
+  
+  
+class TimeLine(models.Model):
+    title= models.CharField("title", max_length=255)
+    desc=models.TextField()
+    created_at=models.DateTimeField()
+
+
+    class Meta:
+        verbose_name = 'TimeLine'
+        verbose_name_plural = 'TimeLines'
+
+    def __str__(self):
+        return self.title  
+    
+
+    
+
+
+    
+
     

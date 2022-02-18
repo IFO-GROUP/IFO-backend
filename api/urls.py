@@ -12,8 +12,13 @@ router.register(r'careercategories', views.CareerCategoryViewSet)
 router.register(r'careers', views.CareerViewSet)
 router.register(r'newscategories', views.NewsCategoryViewSet)
 router.register(r'news', views.NewsViewSet)
-router.register(r'images', views.ImageViewSet)
-
+router.register(r'subscribers', views.SubscriberViewSet)
+router.register(r'coins', views.CoinViewSet)
+router.register(r'coinfields', views.CoinFieldViewSet)
+router.register(r'coindeadlines', views.CoinDeadlineViewSet)
+router.register(r'coinfeatures', views.CoinFeatureViewSet)
+router.register(r'allocationfunds', views.AllocationFundViewSet)
+router.register(r'timelines', views.TimeLineViewSet)
 
 app_name = "api"
 

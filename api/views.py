@@ -3,6 +3,11 @@ from rest_framework.decorators import action
 
 
 from .models import (
+        AllocationFund,
+        Coin,
+        CoinDeadline,
+        CoinFeature,
+        CoinField,
         Project,
         CoFounder,
         ShareHolder,
@@ -10,10 +15,16 @@ from .models import (
         Career,
         NewsCategory,
         News,
-        Image
+        Subscriber,
+        TimeLine
 )
 
 from api.serializers import (
+        AllocationFundSerializer,
+        CoinDeadlineSerializer,
+        CoinFeatureSerializer,
+        CoinFieldSerializer,
+        CoinSerializer,
         ProjectSerializer,
         CoFounderSerializer,
         ShareHolderSerializer,
@@ -21,9 +32,15 @@ from api.serializers import (
         CareerSerializer,
         NewsCategorySerializer,
         NewsSerializer,
-        ImageSerializer
+        SubscriberSerializer,
+        TimeLineSerializer
 )
 
+
+class SubscriberViewSet(viewsets.ModelViewSet):
+    queryset = Subscriber.objects.all()
+    serializer_class = SubscriberSerializer
+    http_method_names = ['post', 'options']
 
 class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Project.objects.all()
@@ -59,8 +76,39 @@ class NewsViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = NewsSerializer
     
     
-class ImageViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Image.objects.all()
-    serializer_class = ImageSerializer
+class CoinViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Coin.objects.all()
+    serializer_class = CoinSerializer
+    
+
+class CoinFieldViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = CoinField.objects.all()
+    serializer_class = CoinFieldSerializer
+
+
+class CoinDeadlineViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = CoinDeadline.objects.all()
+    serializer_class = CoinDeadlineSerializer
+
+
+class CoinFeatureViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = CoinFeature.objects.all()
+    serializer_class = CoinFeatureSerializer
+
+
+class AllocationFundViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = AllocationFund.objects.all()
+    serializer_class = AllocationFundSerializer
+
+
+class TimeLineViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = TimeLine.objects.all()
+    serializer_class = TimeLineSerializer
+
+
+
+    
+    
+
 
 
