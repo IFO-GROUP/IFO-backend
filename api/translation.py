@@ -7,32 +7,32 @@ class ProjectTranslationOptions(TranslationOptions):
     
     
 @register(CoFounder)
-class CoFounderranslationOptions(TranslationOptions):
+class CoFounderTranslationOptions(TranslationOptions):
     fields = ('full_name','desc')
     
     
 @register(ShareHolder)
-class ShareHolderranslationOptions(TranslationOptions):
+class ShareHolderTranslationOptions(TranslationOptions):
     fields = ('full_name','desc')
     
     
 @register(NewsCategory)
-class NewsCategoryranslationOptions(TranslationOptions):
+class NewsCategoryTranslationOptions(TranslationOptions):
     fields = ('type',)
     
 
 @register(News)
-class NewsranslationOptions(TranslationOptions):
+class NewsTranslationOptions(TranslationOptions):
     fields = ('title','desc')
     
     
 @register(Coin)
-class CoinranslationOptions(TranslationOptions):
+class CoinTranslationOptions(TranslationOptions):
     fields = ('title','desc')
     
 
 @register(CoinField)
-class CoinFieldranslationOptions(TranslationOptions):
+class CoinFieldTranslationOptions(TranslationOptions):
     fields = ('title','desc')
 
 
