@@ -61,9 +61,10 @@ class CareerCategoryViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CareerCategorySerializer
 
 
-class CareerViewSet(viewsets.ReadOnlyModelViewSet):
+class CareerViewSet(viewsets.ModelViewSet):
     queryset = Career.objects.all()
     serializer_class = CareerSerializer
+    http_method_names = ['post', 'options']
 
 
 class NewsCategoryViewSet(viewsets.ReadOnlyModelViewSet):
