@@ -74,7 +74,6 @@ class CareerCategorySerializer(serializers.ModelSerializer):
         
         
 class CareerSerializer(serializers.ModelSerializer):
-    category=CareerCategorySerializer()
     class Meta:
         model = Career
         fields = "__all__"

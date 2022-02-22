@@ -4,21 +4,21 @@ from .models import AllocationFund, Career, CareerCategory, CoFounder, Coin, Coi
 
 
 @admin.register(Subscriber)
-class ContactAdmin(admin.ModelAdmin):
+class SubscriberAdmin(admin.ModelAdmin):
     search_fields = ( 'email',)
     list_display = ('email',)
     
     
 
 @admin.register(Project)
-class ContactAdmin(TranslationAdmin):
+class ProjectAdmin(TranslationAdmin):
     search_fields = ('title','desc','text','link','created_at')
     list_display = ('title', 'cover_img', 'desc','detail_img','text','link','created_at')
     list_filter = ('title','desc','text','link','created_at')
 
 
 @admin.register(CoFounder)
-class ContactAdmin(TranslationAdmin):
+class CoFounderAdmin(TranslationAdmin):
     search_fields = ('full_name','desc')
     list_display =  ('full_name','img','desc')
     list_filter =   ('full_name','desc') 
@@ -26,7 +26,7 @@ class ContactAdmin(TranslationAdmin):
 
 
 @admin.register(ShareHolder)
-class ContactAdmin(TranslationAdmin):
+class ShareHolderAdmin(TranslationAdmin):
     search_fields = ('full_name','desc')
     list_display =  ('full_name','img','desc')
     list_filter =   ('full_name','desc') 
@@ -34,7 +34,7 @@ class ContactAdmin(TranslationAdmin):
 
 
 @admin.register(CareerCategory)
-class ContactAdmin(admin.ModelAdmin):
+class CareerCategoryAdmin(admin.ModelAdmin):
     search_fields = ('type',)
     list_display =  ('type',)
     list_filter =   ('type',)
@@ -42,7 +42,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 @admin.register(Career)
-class ContactAdmin(admin.ModelAdmin):
+class CareerAdmin(admin.ModelAdmin):
     search_fields = ('name','email','phone','location')
     list_display =  ('name','email','phone','location','ln_link','comment')
     list_filter =   ('name','email','phone','location')
@@ -50,14 +50,14 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 @admin.register(NewsCategory)
-class ContactAdmin(admin.ModelAdmin):
+class NewsCategoryAdmin(admin.ModelAdmin):
     search_fields = ('type','bg_color')
     list_display =  ('type','bg_color')
     list_filter =   ('type','bg_color')
     
     
 @admin.register(News)
-class ContactAdmin(TranslationAdmin):
+class NewsAdmin(TranslationAdmin):
     search_fields = ('title','created_at')
     list_display =  ('title','cover_img','desc','created_at')
     list_filter =   ('title','created_at')
