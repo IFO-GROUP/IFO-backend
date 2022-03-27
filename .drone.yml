@@ -6,8 +6,8 @@ steps:
   - name: build
     image: plugins/docker
     settings:
-      registry: container-registry
-      repo: container-registry/${DRONE_REPO,,}
+      registry: http://container-registry:5000
+      repo: http://container-registry:5000/${DRONE_REPO,,}
       auto_tag: false
       insecure: true
       dockerfile: ./Dockerfile
