@@ -1,3 +1,5 @@
+[![Build Status](https://drone.orkhanz.net/api/badges/IFO-GROUP/IFO-backend/status.svg)](https://drone.orkhanz.net/IFO-GROUP/IFO-backend)
+
 IFO-GROUP backend
 
 Commands
