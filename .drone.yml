@@ -7,7 +7,7 @@ steps:
     image: plugins/docker
     settings:
       registry: http://container-registry:5000
-      repo: container-registry/${DRONE_REPO,,}
+      repo: container-registry:5000/${DRONE_REPO,,}
       auto_tag: false
       insecure: true
       dockerfile: ./Dockerfile
