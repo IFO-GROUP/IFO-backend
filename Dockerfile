@@ -12,4 +12,6 @@ RUN pip install -r requirements.txt
 
 COPY . ./
 
-CMD [ "python" , "manage.py", "runserver" ]
+EXPOSE 42042
+
+CMD [ "python" , "manage.py", "runserver", "42042" ]

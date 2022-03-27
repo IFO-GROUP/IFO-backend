@@ -11,7 +11,14 @@ steps:
       auto_tag: false
       insecure: true
       dockerfile: ./Dockerfile
-      tags: prod
-    when:
-      branch:
-        - master
+      tags: 
+        - prod
+        - ${DRONE_BUILD_NUMBER}
+
+  - name: "run migrations"
+    image: container-registry:5000/${DRONE_REPO,,}:${DRONE_BUILD_NUMBER}
+    commands:
+      - python manage.py migrate
+trigger:
+  branch:
+    - master
