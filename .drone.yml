@@ -1,0 +1,17 @@
+kind: pipeline
+type: docker
+name: "Deploy to production"
+
+steps:
+  - name: build
+    image: plugins/docker
+    settings:
+      registry: container-registry
+      repo: container-registry/${DRONE_REPO,,}
+      auto_tag: false
+      insecure: true
+      dockerfile: ./Dockerfile
+      tags: prod
+    when:
+      branch:
+        - main
