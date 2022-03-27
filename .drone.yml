@@ -14,4 +14,4 @@ steps:
       tags: prod
     when:
       branch:
-        - main
+        - master
