@@ -11,14 +11,24 @@ steps:
       auto_tag: false
       insecure: true
       dockerfile: ./Dockerfile
-      tags: 
+      tags:
         - prod
         - ${DRONE_BUILD_NUMBER}
-
   - name: "run migrations"
     image: container-registry:5000/${DRONE_REPO,,}:${DRONE_BUILD_NUMBER}
+    environment:
+      POSTGRES_HOST:
+        from_secret: POSTGRES_HOST
+      POSTGRES_USER:
+        from_secret: POSTGRES_USER
+      POSTGRES_DB:
+        from_secret: POSTGRES_DB
+      POSTGRES_PASSWORD:
+        from_secret: POSTGRES_PASSWORD
+
     commands:
       - python manage.py migrate
+
 trigger:
   branch:
     - master
