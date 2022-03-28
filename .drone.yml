@@ -16,7 +16,7 @@ steps:
         - ${DRONE_BUILD_NUMBER}
 
   - name: "run migrations"
-    image: container-registry:5000/${DRONE_REPO,,}:${DRONE_BUILD_NUMBER}
+    image: 172.19.0.1:5000/${DRONE_REPO,,}:${DRONE_BUILD_NUMBER}
     commands:
       - python manage.py migrate
 trigger:
