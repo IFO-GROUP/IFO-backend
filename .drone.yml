@@ -43,7 +43,9 @@ steps:
       POSTGRES_PASSWORD:
         from_secret: POSTGRES_PASSWORD
     commands:
-      - docker run --detach --env POSTGRES_HOST=$POSTGRES_HOST --env POSTGRES_USER=$POSTGRES_USER --env POSTGRES_DB=$POSTGRES_DB --env POSTGRES_PASSWORD=$POSTGRES_PASSWORD --name=ifo-backend container-registry:5000/${DRONE_REPO,,}:${DRONE_BUILD_NUMBER}
+      - docker stop ifo-backend 2> /dev/null
+      - docker rm ifo-backend 2> /dev/null
+      - docker run --detach --env POSTGRES_HOST=$POSTGRES_HOST --env POSTGRES_USER=$POSTGRES_USER --env POSTGRES_DB=$POSTGRES_DB --env POSTGRES_PASSWORD=$POSTGRES_PASSWORD --network=main --name=ifo-backend container-registry:5000/${DRONE_REPO,,}:${DRONE_BUILD_NUMBER}
 
 trigger:
   branch:
