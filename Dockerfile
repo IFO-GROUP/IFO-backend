@@ -14,4 +14,4 @@ COPY . ./
 
 EXPOSE 42042
 
-CMD [ "python" , "manage.py", "runserver", "42042" ]
+CMD [ "python" , "manage.py", "runserver", "0.0.0.0:42042" ]
