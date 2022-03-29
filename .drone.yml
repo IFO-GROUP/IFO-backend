@@ -25,10 +25,30 @@ steps:
         from_secret: POSTGRES_DB
       POSTGRES_PASSWORD:
         from_secret: POSTGRES_PASSWORD
-
     commands:
       - python manage.py migrate
+
+  - name: "container creating"
+    image: docker:20.10.14
+    volumes:
+    - name: cache
+      path: /var/run/docker.sock
+    environment:
+      POSTGRES_HOST:
+        from_secret: POSTGRES_HOST
+      POSTGRES_USER:
+        from_secret: POSTGRES_USER
+      POSTGRES_DB:
+        from_secret: POSTGRES_DB
+      POSTGRES_PASSWORD:
+        from_secret: POSTGRES_PASSWORD
+    commands:
+      - docker run --detach --env POSTGRES_HOST=$POSTGRES_HOST --env POSTGRES_USER=$POSTGRES_USER --env POSTGRES_DB=$POSTGRES_DB --env POSTGRES_PASSWORD=$POSTGRES_PASSWORD --name=ifo-backend container-registry:5000/${DRONE_REPO,,}:${DRONE_BUILD_NUMBER}
 
 trigger:
   branch:
     - master
+volumes:
+- name: cache
+  host:
+    path: /var/run/docker.sock
