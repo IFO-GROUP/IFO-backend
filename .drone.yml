@@ -30,6 +30,7 @@ steps:
 
   - name: "container creating"
     image: docker:20.10.14
+    privileged: true
     volumes:
     - name: cache
       path: /var/run/docker.sock
