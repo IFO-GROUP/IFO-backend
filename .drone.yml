@@ -1,3 +1,4 @@
+---
 kind: pipeline
 type: docker
 name: "Deploy to production"
@@ -55,3 +56,8 @@ volumes:
 - name: cache
   host:
     path: /var/run/docker.sock
+---
+kind: signature
+hmac: 23ea86747a63caec5068fb4d92e36e27b19918aed791529f16dacc2276b1ff21
+
+...
