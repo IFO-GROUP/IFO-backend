@@ -47,8 +47,12 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+
     "https://ifocorporation.com",
-    "https://www.ifocorporation.com"
+    "https://www.ifocorporation.com",
+    
+    "http://ifocorporation.com",
+    "http://www.ifocorporation.com"
 ]
 
 MIDDLEWARE = [
