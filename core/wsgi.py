@@ -11,10 +11,15 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from whitenoise import WhiteNoise
-from settings import MEDIA_ROOT, MEDIA_URL
+from pathlib import Path
 
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
 
 application = get_wsgi_application()
 application = WhiteNoise(application)
 application.add_files(MEDIA_ROOT, prefix=MEDIA_URL)
+
