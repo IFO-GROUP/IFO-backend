@@ -47,8 +47,28 @@ steps:
       MEDIA_HOST_PATH:
         from_secret: MEDIA_HOST_PATH
     commands:
-      - sh remove-container.sh ifo-backend
-      - sh create-container.sh
+      - |
+        CNAME="ifo-backend"
+        if [ "$(docker ps -qa -f name=$CNAME)" ]; then
+          echo ":: Found container - $CNAME"
+          if [ "$(docker ps -q -f name=$CNAME)" ]; then
+            echo ":: Stopping running container - $CNAME"
+            docker stop "$CNAME"
+          fi
+          echo ":: Removing stopped container - $CNAME"
+          docker rm "$CNAME"
+        fi
+      - |
+        docker run \
+          --detach \
+          --env POSTGRES_HOST="$POSTGRES_HOST" \
+          --env POSTGRES_USER="$POSTGRES_USER" \
+          --env POSTGRES_DB="$POSTGRES_DB" \
+          --env POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+          --volume=$MEDIA_HOST_PATH:/app/media \
+          --network="main" \
+          --name="ifo-backend" \
+          container-registry:5000/${DRONE_REPO,,}:${DRONE_BUILD_NUMBER}
 
 trigger:
   branch:
@@ -59,6 +79,6 @@ volumes:
     path: /var/run/docker.sock
 ---
 kind: signature
-hmac: 696fa5a7b0ef2ba841626a7ded53d00359c896559960c49d399dde01ec6b6a14
+hmac: df74d5b5763e25bc8036dd6e82f949da2b295f55f9e23c18ee5e0e3387cba861
 
 ...
