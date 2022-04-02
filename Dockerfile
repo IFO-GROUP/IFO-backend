@@ -14,6 +14,6 @@ COPY . ./
 RUN python manage.py collectstatic
 
 EXPOSE 42042
-
+USER root
 # CMD [ "python" , "manage.py", "runserver", "0.0.0.0:42042" ]
 CMD [ "gunicorn", "--bind", "0.0.0.0:42042", "core.wsgi:application" ]
