@@ -1,6 +1,6 @@
 from django.db import models
 
-import os
+import os, stat, sys
 
 # Create your models here.
 
@@ -46,7 +46,8 @@ class CoFounder(models.Model):
     
     def save(self, *args, **kwargs):
         if self.img:
-            os.chmod(self.img.path, 777)
+            os.chmod(self.img.path, stat.S_IRWXO)
+
         super(CoFounder, self).save(*args, **kwargs)
     
     
