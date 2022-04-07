@@ -46,7 +46,7 @@ class CoFounder(models.Model):
     
     def save(self, *args, **kwargs):
         if self.img:
-            os.chmod(self.img.path, 0o777)
+            os.chmod(self.img.path, 777)
         super(CoFounder, self).save(*args, **kwargs)
     
     
