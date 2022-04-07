@@ -1,6 +1,6 @@
 from django.db import models
 
-import os, stat, sys
+# import os, stat
 
 # Create your models here.
 
@@ -44,11 +44,11 @@ class CoFounder(models.Model):
     def __str__(self):
         return self.full_name
     
-    def save(self, *args, **kwargs):
-        if self.img:
-            os.chmod(self.img.path, 0o1411)
+    # def save(self, *args, **kwargs):
+    #     if self.img:
+    #         os.chmod(self.img.path, stat.S_IRWXO)
 
-        super(CoFounder, self).save(*args, **kwargs)
+    #     super(CoFounder, self).save(*args, **kwargs)
     
     
 class ShareHolder(models.Model):
