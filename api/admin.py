@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
-from .models import AllocationFund, Career, CareerCategory, CoFounder, Coin, CoinDeadline, CoinFeature, CoinField, News, NewsCategory, Project, ShareHolder, Subscriber, TimeLine
+from .models import AllocationFund, Career, CareerCategory, CoFounder, Coin, CoinDeadline, CoinFeature, CoinField, News, NewsCategory, Partner, Project, ShareHolder, Subscriber, TimeLine
 
 
 @admin.register(Subscriber)
@@ -105,4 +105,9 @@ class TimeLineAdmin(TranslationAdmin):
     list_display = ('title','desc','created_at')
 
 
+@admin.register(Partner)
+class Partnerdmin(TranslationAdmin):
+    search_fields = ('title','created_at')
+    list_display= ('title','short_desc','created_at')
+    list_display = ('title','short_desc','created_at')
 

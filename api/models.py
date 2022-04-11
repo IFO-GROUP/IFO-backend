@@ -210,7 +210,24 @@ class TimeLine(models.Model):
         return self.title  
     
 
+
     
+class Partner(models.Model):
+    title= models.CharField("title", max_length=255)
+    logo=models.ImageField(upload_to='partners/')
+    cover_img=models.ImageField(upload_to='partners/')
+    short_desc=models.TextField()
+    desc=models.TextField()
+    img1=models.ImageField(upload_to='news/',null=True, blank=True)
+    created_at=models.DateTimeField(auto_now_add=True)
+
+
+    class Meta:
+        verbose_name = 'Partner'
+        verbose_name_plural = 'Partners'
+
+    def __str__(self):
+        return self.title
 
 
     
