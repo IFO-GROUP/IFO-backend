@@ -20,7 +20,7 @@ def send_mail(Subscriber):
     })
     
     msg = EmailMessage(subject='New Subscribers', body=body,
-        from_email=settings.EMAIL_HOST_USER, to=['info@ifocorporation.com'], )
+        from_email=settings.EMAIL_HOST_USER, to=['ifo.corporation2020@gmail.com', 'info@ifocorporation.com','gandabhasan@gmail.com'], )
     
     msg.content_subtype = 'html'
     
