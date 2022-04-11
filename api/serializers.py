@@ -10,6 +10,7 @@ from .models import (
         CoinDeadline,
         CoinFeature,
         CoinField,
+        Partner,
         Project,
         CoFounder,
         ShareHolder,
@@ -128,5 +129,10 @@ class TimeLineSerializer(serializers.ModelSerializer):
         model = TimeLine
         fields = "__all__"
 
-        
-        
+
+class PartnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Partner
+        fields = "__all__"
+
+              

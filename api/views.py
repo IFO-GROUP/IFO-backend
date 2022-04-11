@@ -8,6 +8,7 @@ from .models import (
         CoinDeadline,
         CoinFeature,
         CoinField,
+        Partner,
         Project,
         CoFounder,
         ShareHolder,
@@ -25,6 +26,7 @@ from api.serializers import (
         CoinFeatureSerializer,
         CoinFieldSerializer,
         CoinSerializer,
+        PartnerSerializer,
         ProjectSerializer,
         CoFounderSerializer,
         ShareHolderSerializer,
@@ -107,6 +109,9 @@ class TimeLineViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TimeLineSerializer
 
 
+class PartnerViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Partner.objects.all()
+    serializer_class = PartnerSerializer
 
     
     

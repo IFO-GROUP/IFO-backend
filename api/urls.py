@@ -6,6 +6,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'projects', views.ProjectViewSet)
+router.register(r'partners', views.PartnerViewSet)
 router.register(r'cofounders', views.CoFounderViewSet)
 router.register(r'shareholders', views.ShareHolderViewSet)
 router.register(r'careercategories', views.CareerCategoryViewSet)

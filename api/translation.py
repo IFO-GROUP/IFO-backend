@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import AllocationFund, Coin, CoinFeature, CoinField, Project, CoFounder, ShareHolder, NewsCategory, News, TimeLine
+from .models import AllocationFund, Coin, CoinFeature, CoinField, Partner, Project, CoFounder, ShareHolder, NewsCategory, News, TimeLine
 
 @register(Project)
 class ProjectTranslationOptions(TranslationOptions):
@@ -49,3 +49,8 @@ class AllocationFundtranslationOptions(TranslationOptions):
 @register(TimeLine)
 class TimeLinetranslationOptions(TranslationOptions):
     fields = ('title','desc')
+    
+
+@register(Partner)
+class PartnertranslationOptions(TranslationOptions):
+    fields = ('title','short_desc','desc')
