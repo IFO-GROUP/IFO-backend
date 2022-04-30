@@ -158,3 +158,9 @@ data/
 
 .media
 .media/
+
+.staticfiles
+.staticfiles/
+
+staticfiles
+staticfiles/
