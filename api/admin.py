@@ -27,9 +27,9 @@ class CoFounderAdmin(TranslationAdmin):
 
 @admin.register(ShareHolder)
 class ShareHolderAdmin(TranslationAdmin):
-    search_fields = ('full_name','desc')
-    list_display =  ('full_name','img','desc')
-    list_filter =   ('full_name','desc') 
+    search_fields = ('full_name','desc','sequence')
+    list_display =  ('full_name','img','desc','sequence')
+    list_filter =   ('full_name','desc','sequence') 
 
 
 
