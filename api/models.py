@@ -55,6 +55,7 @@ class ShareHolder(models.Model):
     full_name= models.CharField("full name", max_length=100)
     img = models.ImageField(upload_to='cofounders/')
     desc=models.TextField(verbose_name="Description",blank=True,null=True)
+    sequence = models.IntegerField(default=0)
 
 
     class Meta:
