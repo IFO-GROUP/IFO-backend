@@ -198,8 +198,8 @@ class AllocationFund(models.Model):
   
   
 class TimeLine(models.Model):
-    title= models.CharField("title", max_length=255)
-    desc=models.TextField()
+    title= models.CharField("title", max_length=255,blank = True,null=True)
+    desc=models.TextField(blank = True,null=True)
     created_at=models.DateTimeField()
 
 
@@ -207,8 +207,7 @@ class TimeLine(models.Model):
         verbose_name = 'TimeLine'
         verbose_name_plural = 'TimeLines'
 
-    def __str__(self):
-        return self.title  
+
     
 
 
