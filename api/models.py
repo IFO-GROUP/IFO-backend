@@ -200,6 +200,7 @@ class AllocationFund(models.Model):
 class TimeLine(models.Model):
     title= models.CharField("title", max_length=255,blank = True,null=True)
     desc=models.TextField(blank = True,null=True)
+    increment=models.IntegerField(default=0)
     created_at=models.DateTimeField()
 
 
