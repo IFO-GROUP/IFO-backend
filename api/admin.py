@@ -100,9 +100,9 @@ class AllocationFundAdmin(TranslationAdmin):
     
 @admin.register(TimeLine)
 class TimeLineAdmin(TranslationAdmin):
-    search_fields = ('title','desc','created_at')
-    list_display= ('title','desc','created_at')
-    list_display = ('title','desc','created_at')
+    search_fields = ('title','desc','increment','created_at')
+    list_display= ('title','desc','increment','created_at')
+    list_display = ('title','desc','increment','created_at')
 
 
 @admin.register(Partner)
