@@ -21,6 +21,11 @@ router.register(r'coinfeatures', views.CoinFeatureViewSet)
 router.register(r'allocationfunds', views.AllocationFundViewSet)
 router.register(r'timelines', views.TimeLineViewSet)
 
+router.register(r'creativeslider', views.CreativeSliderViewSet)
+router.register(r'companyslider', views.CompanySliderViewSet)
+router.register(r'clothingslider', views.ClothingSliderViewSet)
+router.register(r'slider', views.SliderViewSet)
+
 app_name = "api"
 
 urlpatterns = [
