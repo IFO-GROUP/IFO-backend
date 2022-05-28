@@ -6,10 +6,16 @@ from modeltranslation.manager import get_translatable_fields_for_model
 
 from .models import (
         AllocationFund,
+        ClothingSlider,
+        ClothingSliderImage,
         Coin,
         CoinDeadline,
         CoinFeature,
         CoinField,
+        CompanySlider,
+        CompanySliderImage,
+        CreativeSlide,
+        CreativeSliderImage,
         Partner,
         Project,
         CoFounder,
@@ -18,6 +24,8 @@ from .models import (
         Career,
         NewsCategory,
         News,
+        Slider,
+        SliderImage,
         Subscriber,
         TimeLine
 )
@@ -135,4 +143,54 @@ class PartnerSerializer(serializers.ModelSerializer):
         model = Partner
         fields = "__all__"
 
-              
+
+class CreativeSliderImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CreativeSliderImage
+        fields = "__all__"
+        
+        
+class CompanySliderImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompanySliderImage
+        fields = "__all__"
+        
+        
+class ClothingSliderImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClothingSliderImage
+        fields = "__all__"
+        
+                
+class CreativeSliderSerializer(serializers.ModelSerializer):
+    class Meta:
+        img =   CreativeSliderImageSerializer()
+        model = CreativeSlide
+        fields = "__all__"
+        
+        
+class CompanySliderSerializer(serializers.ModelSerializer):
+    class Meta:
+        img =   CompanySliderImageSerializer()
+        model = CompanySlider
+        fields = "__all__"
+        
+        
+class ClothingSliderSerializer(serializers.ModelSerializer):
+    class Meta:
+        img =  ClothingSliderImageSerializer()
+        model = ClothingSlider
+        fields = "__all__"
+        
+  
+class SliderImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SliderImage
+        fields = "__all__"    
+        
+          
+class SliderSerializer(serializers.ModelSerializer):
+    class Meta:
+        img =  SliderImageSerializer()
+        model = Slider
+        fields = "__all__"

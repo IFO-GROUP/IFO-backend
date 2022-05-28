@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
-from .models import AllocationFund, Career, CareerCategory, CoFounder, Coin, CoinDeadline, CoinFeature, CoinField, News, NewsCategory, Partner, Project, ShareHolder, Subscriber, TimeLine
+from .models import AllocationFund, Career, CareerCategory, ClothingSlider, ClothingSliderImage, CoFounder, Coin, CoinDeadline, CoinFeature, CoinField, CompanySlider, CompanySliderImage, CreativeSlide, CreativeSliderImage, News, NewsCategory, Partner, Project, ShareHolder, Slider, SliderImage, Subscriber, TimeLine
 
 
 @admin.register(Subscriber)
@@ -111,3 +111,39 @@ class Partnerdmin(TranslationAdmin):
     list_display= ('title','short_desc','created_at')
     list_display = ('title','short_desc','created_at')
 
+@admin.register(CreativeSliderImage)
+class Partnerdmin(admin.ModelAdmin):
+    search_fields = ('image',)
+
+@admin.register(CompanySliderImage)
+class Partnerdmin(admin.ModelAdmin):
+    search_fields = ('image',)
+
+@admin.register(ClothingSliderImage)
+class Partnerdmin(admin.ModelAdmin):
+    search_fields = ('image',)
+        
+        
+@admin.register(CreativeSlide)
+class Partnerdmin(admin.ModelAdmin):
+    search_fields = ('img',)
+
+@admin.register(CompanySlider)
+class Partnerdmin(admin.ModelAdmin):
+    search_fields = ('img',)
+
+@admin.register(ClothingSlider)
+class Partnerdmin(admin.ModelAdmin):
+    search_fields = ('img',)
+
+@admin.register(SliderImage)
+class Partnerdmin(admin.ModelAdmin):
+    search_fields = ('image',)
+    
+@admin.register(Slider)
+class Partnerdmin(admin.ModelAdmin):
+    search_fields = ('id_number','cover_img','img')    
+
+
+         
+    

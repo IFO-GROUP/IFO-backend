@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import IntegerField
 
 # import os, stat
 
@@ -229,8 +230,90 @@ class Partner(models.Model):
 
     def __str__(self):
         return self.title
-
-
     
+    
+class CreativeSliderImage(models.Model):
+    
+    image=models.ImageField("Enter img url",upload_to='sliders/')
+
+
+    class Meta:
+            verbose_name = 'CreativeSliderImage'
+            verbose_name_plural = 'CreativeSliderImages'
+            
+            
+class CompanySliderImage(models.Model):
+    
+    image=models.ImageField("Enter img url",upload_to='sliders/')
+
+
+    class Meta:
+            verbose_name = 'CompanySliderImage'
+            verbose_name_plural = 'CompanySliderImages'
+            
+            
+            
+class ClothingSliderImage(models.Model):
+    
+    image=models.ImageField("Enter img url",upload_to='sliders/')
+
+
+    class Meta:
+            verbose_name = 'ClothingSliderImage'
+            verbose_name_plural = 'ClothingSliderImages'
+            
+            
+class CreativeSlide(models.Model):
+    
+    img=models.ManyToManyField(CreativeSliderImage)
+
+
+
+    class Meta:
+            verbose_name = 'CreativeSlider'
+            verbose_name_plural = 'CreativeSliders'
+            
+            
+class CompanySlider(models.Model):
+    
+    img=models.ManyToManyField(CompanySliderImage)
+
+
+    class Meta:
+            verbose_name = 'CompanySlider'
+            verbose_name_plural = 'CompanySliders'
+            
+            
+            
+class ClothingSlider(models.Model):
+    
+    img=models.ManyToManyField(ClothingSliderImage)
+
+
+    class Meta:
+            verbose_name = 'ClothingSlider'
+            verbose_name_plural = 'ClothingSliders'
+            
+            
+class SliderImage(models.Model):
+    
+    image=models.ImageField("Enter img url",upload_to='sliders/')
+
+
+    class Meta:
+            verbose_name = 'SliderImage'
+            verbose_name_plural = 'SliderImages'
+            
+            
+class Slider(models.Model):
+    
+    id_number=models.IntegerField(default=0)
+    img=models.ManyToManyField(SliderImage)
+    cover= models.ImageField(upload_to='sliders/',null=True, blank=True)
+
+
+    class Meta:
+            verbose_name = 'lider'
+            verbose_name_plural = 'Sliders'
 
     
